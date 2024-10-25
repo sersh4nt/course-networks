@@ -16,7 +16,8 @@ class EchoServer(Base):
         for _ in range(self.iterations):
             msg = self.socket.recv(self.msg_size)
             self.socket.send(msg)
-            
+
+
 class EchoClient(Base):
     def run(self):
         for _ in range(self.iterations):
@@ -29,13 +30,11 @@ class EchoClient(Base):
 class ParallelClientServer(Base):
     def run(self):
         for i in range(self.iterations):
-            msg = struct.pack('!Q', i)
+            msg = struct.pack("!Q", i)
             n = self.socket.send(msg)
             assert n == len(msg)
-        
+
         for i in range(self.iterations):
             msg = self.socket.recv(8)
-            i_recv = struct.unpack('!Q', msg)[0]
+            i_recv = struct.unpack("!Q", msg)[0]
             assert i_recv == i
-        
-        

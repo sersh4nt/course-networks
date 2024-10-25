@@ -1,4 +1,4 @@
-import threading 
+import threading
 
 
 class TestableThread(threading.Thread):
@@ -7,6 +7,7 @@ class TestableThread(threading.Thread):
 
     REF: https://gist.github.com/sbrugman/59b3535ebcd5aa0e2598293cfa58b6ab
     """
+
     __test__ = False
 
     def __init__(self, *args, **kwargs):
